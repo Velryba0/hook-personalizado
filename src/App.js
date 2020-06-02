@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import useAsyncHook from './hooks/useAsyncHook'
 
 function App() {
+
+  const [country, setCountry] = useState('mx');
+	const [category, setCategory] = useState('science');
+	const [search, setSearch] = useState({
+		country: country,
+		category: category 
+	});
+	const [result] = useAsyncHook(search);
+
+  console.log(result)
+
+  
   return (
     <div className="App">
       <header className="App-header">
